@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "design-patterns"
+version = "0.1.0"
+description = "Design patterns com python"
+authors = ["Diogo Alves <diogo.alves.ti@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+black = "^21.12b0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
