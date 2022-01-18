@@ -46,12 +46,6 @@ class Duck(Protocol):
     fly_behavior: FlyBehavior
     quack_behavior: QuackBehavior
 
-    def set_fly_behavior(self, fly_behavior: FlyBehavior) -> None:
-        self.fly_behavior = fly_behavior
-
-    def set_quack_behavior(self, quack_behavior: QuackBehavior) -> None:
-        self.quack_behavior = quack_behavior
-
     def perform_fly(self) -> None:
         self.fly_behavior.fly()
 
@@ -77,7 +71,7 @@ if __name__ == '__main__':
     mallard_duck.perform_fly()
     mallard_duck.perform_quack()
     print('Narrador: Oh, não! Um caçador apareceu!')
-    mallard_duck.set_fly_behavior(FlyHigh())
+    mallard_duck.fly_behavior = FlyHigh()
     mallard_duck.perform_fly()
 
     print('\nNarrador: Vamos observar o pato de borracha de uma criança:')
@@ -85,5 +79,5 @@ if __name__ == '__main__':
     rubber_duck.perform_quack()
     rubber_duck.perform_fly()
     print('Narrador: Xiii... ela descobriu que não era um pato de verdade!')
-    rubber_duck.set_fly_behavior(FlyThroughWindow())
+    rubber_duck.fly_behavior = FlyThroughWindow()
     rubber_duck.perform_fly()
