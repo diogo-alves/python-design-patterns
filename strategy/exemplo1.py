@@ -55,29 +55,36 @@ class Duck(Protocol):
 
 @dataclass
 class MallardDuck(Duck):
+    """
+    >>> mallard_duck = MallardDuck()
+    >>> mallard_duck.perform_fly()
+    Voando baixo...
+    >>> mallard_duck.perform_quack()
+    Grasnando...
+    >>> mallard_duck.fly_behavior = FlyHigh()
+    >>> mallard_duck.perform_fly()
+    Voando alto...
+    """
     fly_behavior = FlyLow()
     quack_behavior = Quack()
 
 
 @dataclass
 class RubberDuck(Duck):
+    """
+    >>> rubber_duck = RubberDuck()
+    >>> rubber_duck.perform_fly()
+    Não sai do lugar...
+    >>> rubber_duck.perform_quack()
+    Chiando...
+    >>> rubber_duck.fly_behavior = FlyThroughWindow()
+    >>> rubber_duck.perform_fly()
+    Voando pela janela...
+    """
     fly_behavior = FlyNoWay()
     quack_behavior = Squeak()
 
 
 if __name__ == '__main__':
-    print('Narrador: vamos observar um pato selvagem:')
-    mallard_duck = MallardDuck()
-    mallard_duck.perform_fly()
-    mallard_duck.perform_quack()
-    print('Narrador: Oh, não! Um caçador apareceu!')
-    mallard_duck.fly_behavior = FlyHigh()
-    mallard_duck.perform_fly()
-
-    print('\nNarrador: Vamos observar o pato de borracha de uma criança:')
-    rubber_duck = RubberDuck()
-    rubber_duck.perform_quack()
-    rubber_duck.perform_fly()
-    print('Narrador: Xiii... ela descobriu que não era um pato de verdade!')
-    rubber_duck.fly_behavior = FlyThroughWindow()
-    rubber_duck.perform_fly()
+    import doctest
+    doctest.testmod()
